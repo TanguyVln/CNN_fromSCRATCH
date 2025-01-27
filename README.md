@@ -1,1 +1,3 @@
-# CNN_fromSCRATCH
+# CNN from scratch
+
+Readme coming
