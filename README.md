@@ -107,3 +107,10 @@ for i in range(num_filters):
             out_x += 1
         out_y += 1
 ```
+
+## Fully Connected Layer
+
+
+![image](https://github.com/user-attachments/assets/73aff3ba-8a22-432d-a5f6-86e751ad687f)
+https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks
+
