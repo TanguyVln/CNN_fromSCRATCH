@@ -57,7 +57,7 @@ This layer is used to reduce the spatial dimension of the feature maps obtained 
 
 Reducing the height and width of the feature maps allow us to decrease the computational cost (fewer parameters) and to control overfitting by reducing the spatial size.
 
-Here we use a 2x2 Max Pool, that means that each feature maps is divided into 2x2 windows and the maximum value of each window is used as the single value of the output.
+Here we use a 2x2 Max Pool, that means that each feature map is divided into 2x2 windows and the maximum value of each window is used as the single value of the output.
 
 
 
@@ -66,7 +66,7 @@ https://matlab1.com/max-pooling-in-convolutional-neural-network/
 
 
 ### Forward Pass
-In the forward pass, we scan the input in 2x2 windows and select the maximum value for each window.
+In the forward pass, we scan the input in 2x2 windows and select the maximum value of each window.
 
 ```python
 # set the output (half of the size in height and width)
