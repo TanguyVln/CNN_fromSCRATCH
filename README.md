@@ -33,7 +33,7 @@ for i in range(H - 2):
 
 
 ### Backward pass
-In the backward pass, we calcultate the gradient of the loss with respect to each filter. That allows us to update their values in the good way using gradient descent.
+In the backward pass, we calculate the gradient of the loss with respect to each filter. That allows us to update their values in the correct way using gradient descent.
 
 ```python
 # initialize the gradient array 
@@ -53,7 +53,7 @@ self.filters -= learn_rate * d_filters
 
 
 ## Max Pool Layer 
-This layer is used to reduce the spatial dimension of the feature maps obtained thanks to the convolutional layer.
+This layer is used to reduce the spatial dimension of the feature maps obtained from to the convolutional layer.
 
 Reducing the height and width of the feature maps allow us to decrease the computational cost (fewer parameters) and to control overfitting by reducing the spatial size.
 
