@@ -33,7 +33,7 @@ for i in range(H - 2):
 
 
 ### Backward pass
-In the backward pass, we calcultate the gradient of the loss with respect to each filter. That allows us to uodate their value in the good way using gradient descent.
+In the backward pass, we calcultate the gradient of the loss with respect to each filter. That allows us to update their values in the good way using gradient descent.
 
 ```python
 # initialize the gradient array 
