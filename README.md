@@ -109,8 +109,32 @@ for i in range(num_filters):
 ```
 
 ## Fully Connected Layer
-The fully connected layer, takes the input from the max pool layer flattened and applies linear transformation followed by a softmax activation to obtain probabilities for each class (here numbers from 1 to 9)
+The fully connected layer, takes the input from the max pool layer flattened and applies linear transformation followed by a softmax activation to obtain probabilities for each class (here numbers from 1 to 9).  
+* To flatten our 3d input pooled (here of shape 13 X 13 X 16), we just transform it in a 1d array (shape 2704).
+* We then apply the linear transformation : $z = x.W + b$  
+$W$ represents the weight of connections between each input value and neuron (assuming 10 neurons with a shape of 2704x10),  
+$b$ represents the bias vector affiliated to each neurons (with a shape of 10).
+* Finally, the softmax activation converts $z$ to probabilities with the formula :  
+![image](https://github.com/user-attachments/assets/da9a720a-866c-4d15-a495-5dce53d0561c)
+
 
 ![image](https://github.com/user-attachments/assets/73aff3ba-8a22-432d-a5f6-86e751ad687f)
 https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks
 
+
+### Forward Pass
+In the forward pass, we flatten the input, multiply it by the weights, add the bias and aplly softomax.  
+
+```python
+# flatten input
+flattened = input_data.flatten()
+
+# linear transformation
+logits = np.dot(flattened, self.weights) + self.biases
+
+# softmax activation
+exp_values = np.exp(logits)
+return exp_values / np.sum(exp_values, axis=0)
+```
+
+### Backward Pass
