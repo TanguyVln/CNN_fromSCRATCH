@@ -109,7 +109,7 @@ for i in range(num_filters):
 ```
 
 ## Fully Connected Layer
-
+The fully connected layer, takes the input from the max pool layer flattened and applies linear transformation followed by a softmax activation to obtain probabilities for each class (here numbers from 1 to 9)
 
 ![image](https://github.com/user-attachments/assets/73aff3ba-8a22-432d-a5f6-86e751ad687f)
 https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks
