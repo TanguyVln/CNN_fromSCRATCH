@@ -138,3 +138,31 @@ return exp_values / np.sum(exp_values, axis=0)
 ```
 
 ### Backward Pass
+During the backward pass, we compute hwo the loss gradient with respect to the output probabilities afftect the logits, the weights, the biases and the input (to propagate the gradient back to the previous layers).
+
+```python
+# init the gradient wrt logits (z)
+dL_dz = np.zeros_like(z)
+
+# for each output neuron i, j compute the grad wrt z
+for i in range(len(z)):
+    for j in range(len(z)):
+        if i == j:
+            dL_dz[i] += d_out[j] * (probs[i] * (1 - probs[j]))
+        else:
+            dL_dz[i] -= d_out[j] * (probs[i] * probs[j])
+
+# calculate gradient wrt weights and biases
+dL_dw = np.outer(x, dL_dz)
+dL_db = dL_dz
+
+# gradient wrt the input
+dL_dx = self.weights @ dL_dz
+
+# update the parameters
+self.weights -= learn_rate * dL_dw
+self.biases  -= learn_rate * dL_db
+
+# reshape the gradient to match original input shape and pass it the the previous layers
+return dL_dx.reshape(self.last_input_shape)
+```
